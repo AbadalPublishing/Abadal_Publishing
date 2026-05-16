@@ -100,7 +100,7 @@ export default function AdminPaymentAccounts() {
       {(editing || creatingType) && (
         <Modal existing={editing} type={editing?.type || creatingType!}
           onClose={() => { setEditing(null); setCreatingType(null) }}
-          onSave={(data) => {
+          onSave={(data: any) => {
             save.mutate({ id: editing?.id, data: { ...data, type: editing?.type || creatingType } })
             setEditing(null); setCreatingType(null)
           }} />

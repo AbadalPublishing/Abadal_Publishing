@@ -114,7 +114,7 @@ export default function Payments() {
           onClose={() => { setEditing(null); setCreatingType(null) }}
           onSave={data => {
             if (editing) setAccounts(prev => prev.map(a => a.id === editing.id ? { ...a, ...data } : a))
-            else setAccounts(prev => [...prev, { id: String(Date.now()), type: creatingType!, isDefault: prev.length === 0, ...data }])
+            else setAccounts(prev => [...prev, { id: String(Date.now()), type: creatingType!, ...data, isDefault: data.isDefault ?? prev.length === 0 }])
             setEditing(null); setCreatingType(null)
           }}
         />
